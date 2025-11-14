@@ -1,0 +1,29 @@
+//Server.js
+const express = require('express');
+const app = express();
+const PORT = 3000;
+
+app.set('view engine', 'ejs');
+
+app.get('/', (req, res) => {
+  const data = {
+    title: 'Home Page',
+    message: 'Welcome to EJS Example!'
+  };
+  res.render('index', data);
+});
+
+app.listen(PORT, () => {
+  console.log(`Server running at http://localhost:${PORT}`);
+});
+//Index.ejs
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+  </head>
+  <body>
+    <h1><%= message %></h1>
+    <p>This Page is rendered using<b>EJS</b>Templating Engine</p>
+  </body>
+</html>
